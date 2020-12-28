@@ -1,0 +1,12 @@
+D:\Projects\Mine\YoApp\Yo.Models\bin\Debug\Yo.Models.dll.config
+D:\Projects\Mine\YoApp\Yo.Models\bin\Debug\Yo.Models.dll
+D:\Projects\Mine\YoApp\Yo.Models\bin\Debug\Yo.Models.pdb
+D:\Projects\Mine\YoApp\Yo.Models\bin\Debug\EntityFramework.dll
+D:\Projects\Mine\YoApp\Yo.Models\bin\Debug\EntityFramework.SqlServer.dll
+D:\Projects\Mine\YoApp\Yo.Models\bin\Debug\EntityFramework.xml
+D:\Projects\Mine\YoApp\Yo.Models\bin\Debug\EntityFramework.SqlServer.xml
+D:\Projects\Mine\YoApp\Yo.Models\obj\Debug\Yo.Models.csprojAssemblyReference.cache
+D:\Projects\Mine\YoApp\Yo.Models\obj\Debug\Yo.Models.csproj.CoreCompileInputs.cache
+D:\Projects\Mine\YoApp\Yo.Models\obj\Debug\Yo.Models.csproj.CopyComplete
+D:\Projects\Mine\YoApp\Yo.Models\obj\Debug\Yo.Models.dll
+D:\Projects\Mine\YoApp\Yo.Models\obj\Debug\Yo.Models.pdb

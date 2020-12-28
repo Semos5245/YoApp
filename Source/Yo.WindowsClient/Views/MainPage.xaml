@@ -1,0 +1,34 @@
+﻿<Page x:Class="Yo.WindowsClient.Views.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Yo.WindowsClient.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="MainPage">
+
+    <Grid Background="{DynamicResource MainBackgroundColor}">
+
+        <!-- Main grid rows -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="3*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Login button -->
+        <Button Grid.Row="0" 
+                Content="Login" 
+                Style="{StaticResource btnStyle}"
+                Background="DodgerBlue"
+                Command="{Binding OpenLoginPageCommand}"/>
+
+        <!-- Sign up button -->
+        <Button Grid.Row="1"
+                Content="Sign Up"
+                Style="{StaticResource btnStyle}"
+                Background="LimeGreen"
+                Command="{Binding OpenSignupPageCommand}"/>
+    </Grid>
+</Page>

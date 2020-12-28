@@ -1,0 +1,43 @@
+﻿<Window x:Class="Yo.WindowsClient.LogoutWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Yo.WindowsClient"
+        mc:Ignorable="d"
+        Title="LogoutWindow" Height="200" Width="400" WindowStyle="None">
+    <Grid Background="Purple">
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0"
+                   Grid.ColumnSpan="2"
+                   Text="Are you sure you want logout?"
+                   FontSize="25"
+                   VerticalAlignment="Center"
+                   Style="{DynamicResource txtBlockStyle}"/>
+
+        <Button Grid.Row="1"
+                Grid.Column="0"
+                Content="Cancel"
+                Background="OrangeRed"
+                x:Name="btnCancel"
+                Style="{DynamicResource btnStyle}"/>
+
+        <Button Grid.Row="1"
+                Grid.Column="1"
+                Content="Yes"
+                Background="Green"
+                x:Name="btnLogout"
+                Style="{DynamicResource btnStyle}"/>
+        
+    </Grid>
+</Window>

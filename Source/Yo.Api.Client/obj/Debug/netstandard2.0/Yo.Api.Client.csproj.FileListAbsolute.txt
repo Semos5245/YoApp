@@ -1,0 +1,13 @@
+D:\Projects\Mine\YoApp\Yo.Api.Client\bin\Debug\netstandard2.0\Yo.Api.Client.deps.json
+D:\Projects\Mine\YoApp\Yo.Api.Client\bin\Debug\netstandard2.0\Yo.Api.Client.dll
+D:\Projects\Mine\YoApp\Yo.Api.Client\bin\Debug\netstandard2.0\Yo.Api.Client.pdb
+D:\Projects\Mine\YoApp\Yo.Api.Client\bin\Debug\netstandard2.0\Yo.Models.dll
+D:\Projects\Mine\YoApp\Yo.Api.Client\bin\Debug\netstandard2.0\Yo.Models.pdb
+D:\Projects\Mine\YoApp\Yo.Api.Client\bin\Debug\netstandard2.0\Yo.Models.dll.config
+D:\Projects\Mine\YoApp\Yo.Api.Client\obj\Debug\netstandard2.0\Yo.Api.Client.csprojAssemblyReference.cache
+D:\Projects\Mine\YoApp\Yo.Api.Client\obj\Debug\netstandard2.0\Yo.Api.Client.csproj.CoreCompileInputs.cache
+D:\Projects\Mine\YoApp\Yo.Api.Client\obj\Debug\netstandard2.0\Yo.Api.Client.AssemblyInfoInputs.cache
+D:\Projects\Mine\YoApp\Yo.Api.Client\obj\Debug\netstandard2.0\Yo.Api.Client.AssemblyInfo.cs
+D:\Projects\Mine\YoApp\Yo.Api.Client\obj\Debug\netstandard2.0\Yo.Api.Client.csproj.CopyComplete
+D:\Projects\Mine\YoApp\Yo.Api.Client\obj\Debug\netstandard2.0\Yo.Api.Client.dll
+D:\Projects\Mine\YoApp\Yo.Api.Client\obj\Debug\netstandard2.0\Yo.Api.Client.pdb

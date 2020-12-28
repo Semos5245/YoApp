@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net461;netstandard2.0</TargetFrameworks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AKSoftware.WebApi" Version="2.0.0" />
+    <PackageReference Include="System.Net.Http.Formatting.Extension" Version="5.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Yo.Models">
+      <HintPath>..\Yo.Models\bin\Debug\Yo.Models.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

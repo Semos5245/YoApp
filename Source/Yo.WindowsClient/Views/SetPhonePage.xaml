@@ -1,0 +1,155 @@
+﻿<Page x:Class="Yo.WindowsClient.Views.SetPhonePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Yo.WindowsClient.Views"
+      xmlns:Converters="clr-namespace:Yo.WindowsClient.Converters"
+      xmlns:Fa="http://schemas.fontawesome.io/icons/"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="SetPhonePage">
+
+    <Page.Resources>
+        <Converters:BooleanInverseConverter x:Key="boolInverseConverter"/>
+        <Converters:BooleanToVisibilityConverter x:Key="boolToVisibilityConverter"/>
+    </Page.Resources>
+
+    <Grid Background="{DynamicResource MainBackgroundColor}">
+
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="2*"/>
+
+        </Grid.RowDefinitions>
+
+        <Popup Placement="Center" 
+               StaysOpen="False" 
+               MinHeight="175" 
+               MinWidth="300" 
+               x:Name="popup"
+               Width="{Binding PopupWidth}" 
+               Height="{Binding PopupHeight}" 
+               IsOpen="{Binding PopupOpened}">
+
+            <Grid Background="{DynamicResource MainBackgroundColor}">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0"
+                           Text="Message"
+                           HorizontalAlignment="Center"
+                           Style="{DynamicResource txtBlockStyle}"/>
+
+                <TextBlock Grid.Row="1"
+                           FontSize="15"
+                           Text="{Binding Message}"
+                           Foreground="{Binding MessageColor}"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           Style="{DynamicResource txtBlockStyle}"/>
+
+                <Grid Grid.Row="2">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Button Grid.Column="1"
+                        Content="Ok"
+                        Background="OrangeRed"
+                        Margin="0 5"
+                        Command="{Binding ClosePopupCommand}"
+                        Style="{DynamicResource btnStyle}"/>
+                </Grid>
+            </Grid>
+        </Popup>
+
+        <TextBlock Grid.Row="0"
+                   Text="Enter Your Phone #"
+                   Background="LightSeaGreen"
+                   Style="{DynamicResource txtBlockStyle}"/>
+
+        <TextBlock Grid.Row="1"
+                   FontSize="30"
+                   Background="LightSeaGreen"
+                   TextWrapping="Wrap"
+                   Text="To find your friends and allow them to find you. Your contacts are not stored anywhere and will only be used to find your friends"
+                   Style="{DynamicResource txtBlockStyle}"/>
+
+        <Grid Grid.Row="2" Background="Green">
+
+            <Grid.ColumnDefinitions>
+
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="3*"/>
+
+            </Grid.ColumnDefinitions>
+
+            <ComboBox Grid.Column="0"
+                      Margin="20,0,20,0"                 
+                      Text="+1 Change"
+                      Background="Green"
+                      ItemsSource="{Binding Countries}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Name}"
+                                   Foreground="Black"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+
+            <TextBox Grid.Column="1"
+                     Text="{Binding Phone}"
+                     Background="Green"
+                     TextAlignment="Left"
+                     FontSize="45"
+                     Style="{DynamicResource txtBoxStyle}"/>
+        </Grid>
+
+        <Grid Grid.Row="3">
+
+            <Grid.ColumnDefinitions>
+
+                <ColumnDefinition Width="1.1*"/>
+                <ColumnDefinition Width="*"/>
+
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0"
+                    Content="Cancel"
+                    Background="OrangeRed"
+                    Style="{DynamicResource btnStyle}"
+                    Command="{Binding CancelCommand}"
+                    IsEnabled="{Binding IsBusy, Converter={StaticResource boolInverseConverter}}"/>
+
+            <Button Grid.Column="1"
+                    Content="Go"
+                    Background="DarkGreen"
+                    Style="{DynamicResource btnStyle}"
+                    Command="{Binding SetPhoneCommand}"
+                    IsEnabled="{Binding IsBusy, Converter={StaticResource boolInverseConverter}}"/>
+        </Grid>
+
+        <Fa:ImageAwesome Icon="Refresh"
+                         Foreground="White"
+                         Spin="{Binding IsBusy}"
+                         Visibility="{Binding IsBusy, Converter={StaticResource boolToVisibilityConverter}}"
+                         Height="50" Width="50" 
+                         Grid.Row="4" 
+                         HorizontalAlignment="Center" 
+                         VerticalAlignment="Bottom"
+                         Margin="0 0 0 5"/>
+
+    </Grid>
+</Page>

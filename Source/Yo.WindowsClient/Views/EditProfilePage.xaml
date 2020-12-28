@@ -1,0 +1,147 @@
+﻿<Page x:Class="Yo.WindowsClient.Views.EditProfilePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Yo.WindowsClient.Views"
+      xmlns:Converters="clr-namespace:Yo.WindowsClient.Converters"
+      xmlns:Fa="http://schemas.fontawesome.io/icons/"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="EditProfilePage">
+
+    <Page.Resources>
+        <Converters:BooleanInverseConverter x:Key="boolInverseConverter"/>
+        <Converters:BooleanToVisibilityConverter x:Key="boolToVisibilityConverter"/>
+    </Page.Resources>
+    
+    <Grid Background="{DynamicResource MainBackgroundColor}">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+
+        <Popup Placement="Center" 
+               StaysOpen="False" 
+               MinHeight="175" 
+               MinWidth="300" 
+               x:Name="popup"
+               Width="{Binding PopupWidth}" 
+               Height="{Binding PopupHeight}" 
+               IsOpen="{Binding PopupOpened}">
+
+            <Grid Background="{DynamicResource MainBackgroundColor}">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0"
+                           Text="Message"
+                           HorizontalAlignment="Center"
+                           Style="{DynamicResource txtBlockStyle}"/>
+
+                <TextBlock Grid.Row="1"
+                           FontSize="15"
+                           Text="{Binding Message}"
+                           Foreground="{Binding MessageColor}"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           Style="{DynamicResource txtBlockStyle}"/>
+
+                <Grid Grid.Row="2">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Button Grid.Column="1"
+                        Content="Ok"
+                        Background="OrangeRed"
+                        Margin="0 5"
+                        Command="{Binding ClosePopupCommand}"
+                        Style="{DynamicResource btnStyle}"/>
+                </Grid>
+            </Grid>
+        </Popup>
+
+        <TextBlock Grid.Row="0"
+                   Background="LightSeaGreen"
+                   Text="Set A Profile Picture"
+                   Style="{DynamicResource txtBlockStyle}"/>
+
+        <Button Grid.Row="1"
+                Background="LimeGreen"
+                Content="Choose Image"
+                Style="{DynamicResource btnStyle}"
+                Command="{Binding OpenFileDialogCommand}"
+                IsEnabled="{Binding IsBusy, Converter={StaticResource boolInverseConverter}}"/>
+
+        <Grid Grid.Row="2" Background="Orange">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+
+            <Ellipse Width="75" Height="75">
+                <Ellipse.Fill>
+                    <ImageBrush ImageSource="{Binding ImagePath}" />
+                </Ellipse.Fill>
+            </Ellipse>
+
+            <TextBox Grid.Column="1"
+                     TextAlignment="Left"
+                     Text="{Binding FullName}"
+                     Background="Orange"
+                     Style="{DynamicResource txtBoxStyle}"/>
+        </Grid>
+
+        <TextBlock Grid.Row="3"
+                   Background="DimGray"
+                   Text="This is what other users can see about you when they swip your username to the right."
+                   Style="{DynamicResource txtBlockStyle}"
+                   FontSize="20"
+                   Foreground="DarkGray"/>
+
+        <Grid Grid.Row="4" IsEnabled="{Binding IsBusy, Converter={StaticResource boolInverseConverter}}">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="1.2*"/>
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0"
+                    Content="Back"
+                    Background="OrangeRed"
+                    Style="{DynamicResource btnStyle}"
+                    Command="{Binding CancelCommand}"/>
+
+            <Button Grid.Column="1"
+                    Content="Save"
+                    Background="Green"
+                    Style="{DynamicResource btnStyle}"
+                    Command="{Binding SaveCommand}"/>
+        </Grid>
+
+        <Fa:ImageAwesome Icon="Refresh"
+                         Foreground="White"
+                         Spin="{Binding IsBusy}"
+                         Visibility="{Binding IsBusy,Converter={StaticResource boolToVisibilityConverter}}"
+                         Height="50" Width="50" 
+                         Grid.Row="5" 
+                         HorizontalAlignment="Center" 
+                         VerticalAlignment="Bottom"
+                         Margin="0 0 0 5"/>
+        
+    </Grid>
+</Page>
